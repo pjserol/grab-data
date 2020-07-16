@@ -20,7 +20,7 @@ This program has 3 consumers to downloads the files from the ftp server to impro
 - GUNZIP_CMD
 - TEQC_CMD  
 
-export env GUNZIP_CMD="gunzip"
+export env GUNZIP_CMD="gunzip"  
 export env TEQC_CMD="teqc"
 
 ## Test locally
