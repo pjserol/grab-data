@@ -30,9 +30,10 @@ func unzipFile(fileName string) (string, error) {
 // processFilesWithTeqc run the command teqc
 // and create a file example.obs
 func processFilesWithTeqc(fileNames []string, baseStationID string) error {
+	name := baseStationID + ".obs"
 	cmdArgs := fileNames
 	cmdArgs = append(cmdArgs, ">")
-	cmdArgs = append(cmdArgs, "example.obs")
+	cmdArgs = append(cmdArgs, name)
 
 	log.Println("Command::", append([]string{teqcCMD}, cmdArgs...))
 	cmd := exec.Command(teqcCMD, cmdArgs...)
@@ -50,5 +51,5 @@ func processFilesWithTeqc(fileNames []string, baseStationID string) error {
 		log.Printf("Error:%v", err)
 	}
 
-	return ioutil.WriteFile("./"+baseStationID+".obs", stdout.Bytes(), 0644)
+	return ioutil.WriteFile("./"+name, stdout.Bytes(), 0644)
 }
